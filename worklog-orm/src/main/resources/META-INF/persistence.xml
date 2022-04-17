@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+						 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+						 xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd"
+						 version="3.0">
+
+	<persistence-unit name="WorklogPU">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+		<properties>
+			<property name="hibernate.archive.autodetection" value="class" />
+
+			<property name="javax.persistence.jdbc.driver"
+					  value="org.apache.derby.jdbc.ClientDriver" />
+			<property name="javax.persistence.jdbc.url"
+					  value="jdbc:derby://localhost/WorkLogDb;create=true" />
+
+			<property name="hibernate.dialect"
+					  value="org.hibernate.dialect.DerbyTenSevenDialect" />
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.format_sql" value="false" />
+			<property name="hibernate.hbm2ddl.auto" value="create" />
+		</properties>
+	</persistence-unit>
+
+	<persistence-unit name="WorklogTestPU">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+		<properties>
+			<property name="hibernate.archive.autodetection" value="class" />
+
+			<property name="javax.persistence.jdbc.driver"
+					  value="org.apache.derby.jdbc.EmbeddedDriver" />
+			<property name="javax.persistence.jdbc.url"
+					  value="jdbc:derby:memory:WorkLogDb;create=true" />
+			<property name="hibernate.dialect"
+					  value="org.hibernate.dialect.DerbyTenSevenDialect" />
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.format_sql" value="false" />
+			<property name="hibernate.hbm2ddl.auto" value="create" />
+		</properties>
+	</persistence-unit>
+
+</persistence>
